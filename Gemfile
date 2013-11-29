@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin' 
 
 
 # Gems used only for assets and not required
