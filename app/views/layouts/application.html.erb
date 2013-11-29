@@ -17,7 +17,22 @@
 				<li><a href="#">Log In</a></li>
 			</ul>
 		</div>
-		<div class="row-fluid" style="margin-top: 50px;">
+		<!--flash alert-->
+		<% if flash[:alert]%>
+			<div class="row-fluid" style="margin-top: 25px;">
+				<div class="alert alert-danger"><%= flash[:alert] %></div>
+			</div>
+		<% end %>
+		<!--end alert-->
+		<!--flash notification-->
+		<% if flash[:notice] %>
+			<div class="row-fluid" style="margin-top: 25px;">
+				<div class="alert alert-success"><%= flash[:notice] %></div>
+			</div>
+		<% end %>
+		<!--end notification-->
+
+		<div class="row-fluid" style="margin-top: 25px;">
 			<%= yield %>
 		</div>
 	</div>
