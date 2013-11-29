@@ -13,8 +13,14 @@
 			<%= image_tag "opendoor.jpg", alt: "OpenDoor" %>
 			<ul class="nav nav-pills pull-right">
 				<li><a href="/courses">View Courses</a></li>
+				<% if user_signed_in? %>
+				<li>
+					<%= link_to("Logout: #{current_user.email}", destroy_user_session_path, :method => :delete)%>
+				</li>
+				<% else %>
 				<li><a href="#">Sign Up</a></li>
 				<li><a href="#">Log In</a></li>
+				<% end %>
 			</ul>
 		</div>
 		<!--flash alert-->

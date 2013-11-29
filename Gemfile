@@ -7,6 +7,8 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required
