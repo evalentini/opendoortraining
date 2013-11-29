@@ -1,11 +1,20 @@
 
 require "omniauth-facebook"
+require "omniauth-linkedin"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   
   #configure authentication from other providers
-  config.omniauth :facebook, "559750310772117", "bd64c4486d473e64b4bc04605d2f6ea9"
+  if Rails.env.development?
+    config.omniauth :facebook, "604272176300705", "s3bcc028f4ba0d10c2bf57148e3afc9ba"
+    config.omniauth :linkedin, "759jvvu6dwil4w", "NaUJfuFnvAhXHFhU"
+  end
+  
+  if Rails.env.production?
+    config.omniauth :facebook, "559750310772117", "bd64c4486d473e64b4bc04605d2f6ea9"
+    config.omniauth :linkedin, "75ujpih52lvze8", "GtAG7ruB7iCBRPhr"
+  end
   
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
