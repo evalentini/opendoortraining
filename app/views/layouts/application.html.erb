@@ -15,6 +15,9 @@
 				<li><a href="/courses">View Courses</a></li>
 				<% if user_signed_in? %>
 				<li>
+					<a href="/pages/mycourses">My Courses</a>
+				</li>
+				<li>
 					<%= link_to("Logout: #{current_user.email}", destroy_user_session_path, :method => :delete)%>
 				</li>
 				<% else %>
