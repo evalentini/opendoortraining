@@ -1,6 +1,7 @@
 
 require "omniauth-facebook"
 require "omniauth-linkedin"
+require "omniauth-google-oauth2"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -9,11 +10,17 @@ Devise.setup do |config|
   if Rails.env.development?
     config.omniauth :facebook, "604272176300705", "s3bcc028f4ba0d10c2bf57148e3afc9ba"
     config.omniauth :linkedin, "759jvvu6dwil4w", "NaUJfuFnvAhXHFhU"
+    config.omniauth :google_oauth2, "25826397626-63c1cmsqloelktsl8qqovojikqri2bs8.apps.googleusercontent.com", 
+                                    "nqeN1NV_VjBv5nKS0usTrvRK", 
+                                    { access_type: "offline", approval_prompt: "" }
   end
   
   if Rails.env.production?
     config.omniauth :facebook, "559750310772117", "bd64c4486d473e64b4bc04605d2f6ea9"
     config.omniauth :linkedin, "75ujpih52lvze8", "GtAG7ruB7iCBRPhr"
+    config.omniauth :google_oauth2, "25826397626-5bjatmsva3q12abeqsd53ig6esucaq6a.apps.googleusercontent.com", 
+                                    "c4KKvH1KWiWOUBtXC0_j33uB", 
+                                    { access_type: "offline", approval_prompt: "" }
   end
   
   # ==> Mailer Configuration
