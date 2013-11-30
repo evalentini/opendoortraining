@@ -15,6 +15,11 @@
   <%= @teacher.email %>
 </p>
 
+<p>
+	<b>Profile Picture</b><br>
+	<%= image_tag @teacher.avatar.url(:original)%>
+	<br>
+
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>
