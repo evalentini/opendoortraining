@@ -1,10 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @course.name %>
-</p>
+<div class="row-fluid">
+	<div class="span8 headerspan">
+		<%= @course.name %>
+	</div>
+	<div class="span4 pull-right">
+		<button class="btn btn-primary">Enroll In Course</button>
+	</div>
+</div>
+
+<div class="row-fluid" style="margin-top: 25px;">
+	<div class="span8">
+		<strong>Course Information</strong><br><br><br>
+		<% if @course.description.nil? %>
+		MISSING DESCRIPTION
+		<% else %>
+			<%= @course.description.html_safe %>
+		<% end %>
+	</div>
+	<div class="span4">
+		<strong>This Course Is Taught By:</strong>
+		<% if @course.teacher_id.nil? %> MISSING TEACHER NAME
+		<% else %>
+		<%= @course.teacher.name %>
+		<br><br><br>
+		<a href="/teachers/<%= @course.teacher.id %>">read more about <%= @course.teacher.name %></a>
+		<br>
+		Email <%= @course.teacher.name %> at: <%= @course.teacher.email %>
+		<br>
+		<%= image_tag @course.teacher.avatar.url(:original) %>
+		<% end %>
+	</div>
+</div>
 
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="row-fluid" style="margin-top: 25px; border-bottom: 1px dashed;">
+	<div class="span12" style="font-size: 150%;">
+		<strong>Administrator Tools</strong>
+	</div>
+</div>
+
+<div class="row-fluid" style="margin-top: 10px;">
+	<div class="span12">
+		<%= link_to 'Edit', edit_course_path(@course) %> |
+		<%= link_to 'Back', courses_path %>
+	</div>
+</div>
+

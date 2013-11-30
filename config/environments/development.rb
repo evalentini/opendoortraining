@@ -4,6 +4,18 @@ Opendoortraining::Application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'opendoortraining',
+      :access_key_id => 'AKIAJGSUWKREAKDAE7EA',
+      :secret_access_key => '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'
+    }
+  }
+  
   config.cache_classes = false
 
   # Log error messages when you accidentally call methods on nil.

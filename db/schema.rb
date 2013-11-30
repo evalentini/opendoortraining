@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129191018) do
+ActiveRecord::Schema.define(:version => 20131130155107) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.string   "career"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+    t.integer  "teacher_id"
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "email"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|
