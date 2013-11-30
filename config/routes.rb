@@ -1,11 +1,15 @@
 Opendoortraining::Application.routes.draw do
   
+  get "pages/mycourses"
+
   resources :teachers
 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
   resources :courses
+  get "/courses/enroll/:id" => 'courses#enroll'
   root :to => 'courses#index'
   
 

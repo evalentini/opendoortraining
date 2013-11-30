@@ -4,6 +4,19 @@ class CoursesController < ApplicationController
   
   before_filter :authenticate_user!
   
+  def enroll
+    unless params[:id].present?
+      redirect_to courses_url
+    else
+      logger.info "-----IM RUNNING------"
+      user_ids=Course.find(params[:id]).user_ids
+      user_ids << current_user.id
+      Course.find(params[:id]).update_attributes(:user_ids => user_ids)
+      redirect_to course_url(params[:id])
+    end
+    
+  end
+  
   def index
     @careers=Course.select(:career).group("career").order("career asc")
     @courses=Course.order("career asc, name asc")
